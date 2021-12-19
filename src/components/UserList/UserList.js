@@ -55,6 +55,7 @@ const UserList = ({ users, isLoading, countries, setCountries, handleScroll }) =
               key={index}
               onMouseEnter={() => handleMouseEnter(index)}
               onMouseLeave={handleMouseLeave}
+              style={{ backgroundColor: "steelblue" }}
             >
               <S.UserPicture src={user?.picture.large} alt="" />
               <S.UserInfo>
