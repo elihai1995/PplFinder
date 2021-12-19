@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Grid, Container } from "@material-ui/core/";
-import FavoritePage from "components/FavoritePage";
+import FavoriteCard from "components/FavoriteCard";
 import Spinner from "components/Spinner";
 
 const FavoritesList = () => {
@@ -29,7 +29,7 @@ const FavoritesList = () => {
         )}
         {favoritesUsers?.map((user) => (
           <Grid item key={user.email}>
-            <FavoritePage
+            <FavoriteCard
               name={user.name.first}
               lastName={user.name.last}
               img={user.picture.large}
