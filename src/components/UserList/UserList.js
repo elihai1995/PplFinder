@@ -6,8 +6,9 @@ import IconButton from "@material-ui/core/IconButton";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import * as S from "./style";
 
-const UserList = ({ users, isLoading }) => {
+const UserList = ({ users, isLoading, countries, setCountries, handleScroll }) => {
   const [hoveredUserId, setHoveredUserId] = useState();
+  const [selectedFavorites, SelectedFavorites] = useState([]);
 
   const handleMouseEnter = (index) => {
     setHoveredUserId(index);
@@ -17,16 +18,37 @@ const UserList = ({ users, isLoading }) => {
     setHoveredUserId();
   };
 
+  const handleCheckCountries = (value) => {
+    if (countries.includes(value)) {
+      const filterCountries = countries.filter((el) => el !== value);
+      return setCountries(filterCountries);
+    }
+    setCountries([...countries, value]);
+  };
+
+  const handleFavorites = (user) => {
+    const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+    if (favorites.find((el) => el.email === user.email)) {
+      const filterFavorites = favorites.filter((el) => el.email !== user.email);
+      SelectedFavorites(filterFavorites);
+      localStorage.setItem("favorites", JSON.stringify(filterFavorites));
+      return;
+    }
+    favorites.push(user);
+    SelectedFavorites(favorites);
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+  };
+
   return (
     <S.UserList>
       <S.Filters>
-        <CheckBox value="BR" label="Brazil" />
-        <CheckBox value="AU" label="Australia" />
-        <CheckBox value="CA" label="Canada" />
-        <CheckBox value="DE" label="Germany" />
-        <CheckBox value="NO" label="Norway" />
+        <CheckBox value="BR" label="Brazil" onChange={handleCheckCountries} />
+        <CheckBox value="AU" label="Australia" onChange={handleCheckCountries} />
+        <CheckBox value="CA" label="Canada" onChange={handleCheckCountries} />
+        <CheckBox value="DE" label="Germany" onChange={handleCheckCountries} />
+        <CheckBox value="NO" label="Norway" onChange={handleCheckCountries} />
       </S.Filters>
-      <S.List>
+      <S.List onScroll={handleScroll}>
         {users.map((user, index) => {
           return (
             <S.User
@@ -47,7 +69,13 @@ const UserList = ({ users, isLoading }) => {
                   {user?.location.city} {user?.location.country}
                 </Text>
               </S.UserInfo>
-              <S.IconButtonWrapper isVisible={index === hoveredUserId}>
+              <S.IconButtonWrapper
+                onClick={() => handleFavorites(user)}
+                isVisible={
+                  index === hoveredUserId ||
+                  selectedFavorites.find((el) => el.email === user.email)
+                }
+              >
                 <IconButton>
                   <FavoriteIcon color="error" />
                 </IconButton>
