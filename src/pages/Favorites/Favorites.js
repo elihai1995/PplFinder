@@ -8,7 +8,7 @@ const Favorites = () => {
     <>
       <S.Content>
         <Text size="64px" bold>
-          Favorites
+          My Favorites
         </Text>
       </S.Content>
       <FavoritesList />
