@@ -33,8 +33,8 @@ const FavoritesList = () => {
               name={user.name.first}
               lastName={user.name.last}
               img={user.picture.large}
-              country={user.location.country}
               email={user.email}
+              country={user.location.country}
               handleFavorites={handleFavorites}
             />
           </Grid>
