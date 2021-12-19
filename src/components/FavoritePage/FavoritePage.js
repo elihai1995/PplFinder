@@ -9,7 +9,7 @@ import {
 } from "@material-ui/core/";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 
-const FavoriteCard = ({ name, lastName, email, img, country, handleFavorites }) => {
+const FavoritePage = ({ name, lastName, email, img, country, handleFavorites }) => {
   return (
     <Page style={{ width: "300px" }}>
       <PageMedia
