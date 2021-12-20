@@ -20,6 +20,10 @@ const NavBar = ({ }) => {
     time = showdate.getHours()+':0'+showdate.getMinutes();
   else
     time = showdate.getHours()+':'+showdate.getMinutes();
+  if (showdate.getHours() < 10)
+    time = '0'+showdate.getHours()+':'+showdate.getMinutes();
+  else
+    time = showdate.getHours()+':'+showdate.getMinutes();
   const [tine, setTime] = useState(time);
   const UpdateTime = () => {
     time = new Date().toLocaleTimeString();
@@ -39,7 +43,7 @@ const NavBar = ({ }) => {
           to="/favorites"
           replace
         />
-        <div style={{marginTop: 25, fontSize: 20, fontFamily: "cursive", marginLeft: 1350}}>{date}, {time}</div>
+        <div style={{marginTop: 25, fontSize: 20, fontFamily: "cursive"}}>{date}, {time}</div>
       </Tabs>
     </AppBar>
   );
