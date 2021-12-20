@@ -11,7 +11,7 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 
 const FavoriteCard = ({ name, lastName, email, img, country, handleFavorites }) => {
   return (
-    <Card style={{ width: "260px", textAlign: "center", backgroundColor: "#007fc9", color: "black" }}> <br />
+    <Card style={{ width: "260px", textAlign: "center", backgroundColor: "#cbdcfa", color: "black" }}> <br />
       <CardMedia
         component="img"
         alt="user img"
