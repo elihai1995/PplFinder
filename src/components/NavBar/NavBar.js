@@ -16,14 +16,18 @@ const NavBar = ({ }) => {
   let showdate = new Date();
   let date = showdate.getDate()+'/'+(showdate.getMonth()+1)+'/'+showdate.getFullYear();
   let time = showdate.getHours()+':'+showdate.getMinutes();
-  if (showdate.getMinutes() < 10)
-    time = showdate.getHours()+':0'+showdate.getMinutes();
-  else
-    time = showdate.getHours()+':'+showdate.getMinutes();
-  if (showdate.getHours() < 10)
-    time = '0'+showdate.getHours()+':'+showdate.getMinutes();
-  else
-    time = showdate.getHours()+':'+showdate.getMinutes();
+  if (showdate.getMinutes() < 10 && showdate.getHours() < 10)
+    time = '0'+showdate.getHours()+':0'+showdate.getMinutes();
+  else {
+    if (showdate.getHours() < 10)
+      time = '0'+showdate.getHours()+':'+showdate.getMinutes();
+    else {
+      if (showdate.getMinutes() < 10)
+        time = showdate.getHours()+':0'+showdate.getMinutes();
+      else
+        time = showdate.getHours()+':'+showdate.getMinutes();
+    }
+  }
   const [tine, setTime] = useState(time);
   const UpdateTime = () => {
     time = new Date().toLocaleTimeString();
