@@ -17,7 +17,7 @@ const Home = () => {
 
   const handleScroll = (e) => {
     const { scrollTop, clientHeight, scrollHeight } = e.currentTarget;
-    if (scrollHeight - scrollTop <= clientHeight + 5 && !isLoading) {
+    if (scrollHeight - scrollTop <= clientHeight && !isLoading) {
       setPageToFetch((prev) => prev + 1);
     }
   };
