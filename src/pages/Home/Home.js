@@ -15,13 +15,6 @@ const Home = () => {
     setCountriesToFetch(countries);
   }, [countries]);
 
-  const handleScroll = (e) => {
-    const { scrollTop, clientHeight, scrollHeight } = e.currentTarget;
-    if (scrollHeight - scrollTop <= clientHeight && !isLoading) {
-      setPageToFetch((prev) => prev + 1);
-    }
-  };
-
   return (
     <S.Home>
       <S.Content>
@@ -35,7 +28,6 @@ const Home = () => {
           isLoading={isLoading}
           countries={countries}
           setCountries={setCountries}
-          handleScroll={handleScroll}
         />
       </S.Content>
     </S.Home>
