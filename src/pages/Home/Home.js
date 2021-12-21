@@ -17,7 +17,7 @@ const Home = () => {
 
   return (
     <S.Home>
-      <S.Content>
+      <S.Content style={{ backgroundColor: "#007fc9" }}>
         <S.Header>
           <Text size="64px" bold>
             PplFinder
