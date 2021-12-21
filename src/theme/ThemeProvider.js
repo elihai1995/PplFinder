@@ -6,7 +6,7 @@ const ThemeProvider = ({ children }) => {
   const overrides = {
     MuiTab: {
       root: {
-        backgroundColor: "#303030",
+        backgroundColor: "#d21919",
       },
     },
   };
