@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Text from "components/Text";
 import Spinner from "components/Spinner";
 import CheckBox from "components/CheckBox";
@@ -6,25 +6,9 @@ import IconButton from "@material-ui/core/IconButton";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import * as S from "./style";
 
-const UserList = ({ users, isLoading, countries, setCountries, handleScroll }) => {
+const UserList = ({ users, isLoading, countries, setCountries }) => {
   const [hoveredUserId, setHoveredUserId] = useState();
   const [selectedFavorites, SelectedFavorites] = useState([]);
-
-  const handleMouseEnter = (index) => {
-    setHoveredUserId(index);
-  };
-
-  const handleMouseLeave = () => {
-    setHoveredUserId();
-  };
-
-  const handleCheckCountries = (value) => {
-    if (countries.includes(value)) {
-      const filterCountries = countries.filter((el) => el !== value);
-      return setCountries(filterCountries);
-    }
-    setCountries([...countries, value]);
-  };
 
   const handleFavorites = (user) => {
     const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
@@ -39,6 +23,22 @@ const UserList = ({ users, isLoading, countries, setCountries, handleScroll }) =
     localStorage.setItem("favorites", JSON.stringify(favorites));
   };
 
+  const handleCheckCountries = (value) => {
+    if (countries.includes(value)) {
+      const filterCountries = countries.filter((el) => el !== value);
+      return setCountries(filterCountries);
+    }
+    setCountries([...countries, value]);
+  };
+
+  const handleMouseEnter = (index) => {
+    setHoveredUserId(index);
+  };
+
+  const handleMouseLeave = () => {
+    setHoveredUserId();
+  };
+
   return (
     <S.UserList>
       <S.Filters>
@@ -48,7 +48,7 @@ const UserList = ({ users, isLoading, countries, setCountries, handleScroll }) =
         <CheckBox value="DE" label="Germany" onChange={handleCheckCountries} />
         <CheckBox value="NO" label="Norway" onChange={handleCheckCountries} />
       </S.Filters>
-      <S.List onScroll={handleScroll}>
+      <S.List>
         {users.map((user, index) => {
           return (
             <S.User
