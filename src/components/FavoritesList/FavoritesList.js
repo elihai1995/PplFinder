@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Container, Grid } from "@material-ui/core/";
 import FavoriteCard from "components/FavoriteCard";
-import Spinner from "components/Spinner";
 
 const FavoritesList = () => {
   const [favoritesUsers, setFavoritesUsers] = useState(null);
@@ -22,13 +21,7 @@ const FavoritesList = () => {
   return (
     <Container maxWidth={false}>
       <Grid container justify="center" spacing={3}>
-        {isLoading && (
-          <Grid item>
-            <Spinner />
-          </Grid>
-        )}
         {favoritesUsers?.map((user) => (
-          <Grid item key={user.email}>
             <FavoriteCard
               name={user.name.first}
               lastName={user.name.last}
@@ -37,7 +30,6 @@ const FavoritesList = () => {
               country={user.location.country}
               handleFavorites={handleFavorites}
             />
-          </Grid>
         ))}
       </Grid>
     </Container>
