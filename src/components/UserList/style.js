@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const UserList = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
 `;
 
 export const List = styled.div`
@@ -33,6 +34,28 @@ export const UserInfo = styled.div`
 
 export const UserPicture = styled.img`
   border-radius: 45%;
+`;
+
+export const SpinnerWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
+export const IconButtonWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
+  transition: opacity 0.2s ease-in-out;
+`;
+
+export const Filters = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  & > * {
+    margin-inline-end: 8px;
+  }
+`;
 `;
 
 export const SpinnerWrapper = styled.div`
