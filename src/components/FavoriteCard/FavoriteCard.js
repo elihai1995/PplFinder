@@ -3,13 +3,13 @@ import {
   Card,
   CardMedia,
   CardContent,
-  Typography,
   CardActions,
   IconButton,
+  Typography,
 } from "@material-ui/core/";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 
-const FavoriteCard = ({ name, lastName, email, img, country, handleFavorites }) => {
+const FavoriteCard = ({ name, lastName, email, country, img, handleFavorites }) => {
   return (
     <Card style={{ width: "260px", textAlign: "center", backgroundColor: "#cbdcfa", color: "black" }}> <br />
       <CardMedia
