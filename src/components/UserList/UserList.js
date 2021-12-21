@@ -55,7 +55,7 @@ const UserList = ({ users, isLoading, countries, setCountries }) => {
               key={index}
               onMouseEnter={() => handleMouseEnter(index)}
               onMouseLeave={handleMouseLeave}
-              style={{ backgroundColor: "#007fc9" }}
+              style={{ backgroundColor: "#00874d" }}
             >
               <S.UserPicture src={user?.picture.large} alt="" />
               <S.UserInfo>
