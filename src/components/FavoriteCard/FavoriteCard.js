@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  Card,
-  CardMedia,
-  CardContent,
-  CardActions,
-  IconButton,
-  Typography,
-} from "@material-ui/core/";
+import { Card, CardMedia, CardContent, CardActions, IconButton, Typography } from "@material-ui/core/";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 
 const FavoriteCard = ({ name, lastName, email, country, img, handleFavorites }) => {
