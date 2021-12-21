@@ -9,7 +9,7 @@ const Favorites = () => {
       <S.Content>
         <Text size="64px" bold>
           My Favorites
-        </Text>
+        </Text> <br />
       </S.Content>
       <FavoritesList />
     </>
