@@ -36,7 +36,7 @@ const NavBar = ({ }) => {
   setInterval(UpdateTime, 1000);
 
   return (
-    <AppBar position="static" style={{ position: "fixed", top: 0 }} color="transparent">
+    <AppBar position="static" style={{ position: "fixed", backgroundColor: "#d21919", top: 0 }} color="transparent">
       <Tabs value={value} onChange={handleChange} aria-label="Navigation">
         <Tab label="home" icon={<HomeIcon />} index={0} component={Link} to="/" replace />
         <Tab
