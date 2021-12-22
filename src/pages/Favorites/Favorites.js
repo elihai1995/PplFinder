@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Text from "components/Text";
 import FavoritesList from "components/FavoritesList";
 import * as S from "./style";
